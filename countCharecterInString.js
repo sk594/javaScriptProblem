@@ -3,14 +3,12 @@ function countChar(str) {
 
     for(let char of str) {
         char = char.toLowerCase();
-        if(charObj[char]){
-            charObj[char]++
-        }
-        else{
-            charObj[char] = 1
+        if(/[a-z0-9]/.test(char)){     //add regex for count only number and charecter 
+            charObj[char] = ++charObj[char] || 1;
         }
     }
+    console.log("====",charObj)
     return charObj;
 }
 
-countChar('abcccCc');
+countChar('abcc@! # cCc');
